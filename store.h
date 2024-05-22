@@ -301,17 +301,8 @@ void removeDetail(int recipeCount)
     }
     fclose(fp1);
     fclose(tempfp);
-    if (remove(FILE1_NAME) != 0)
-    {
-        perror("Error removing original file");
-        return;
-    }
-
-    if (rename(TEMP_FILE, FILE1_NAME) != 0)
-    {
-        perror("Error renaming temporary file");
-        return;
-    }
+    remove (FILE1_NAME);
+    rename (TEMP_FILE, FILE1_NAME);
 }
 
 // Removing ingredients inside the file-2
